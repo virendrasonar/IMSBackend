@@ -112,4 +112,11 @@ public class AdminController {
         return message.map(ResponseEntity::ok)
                       .orElse(ResponseEntity.notFound().build());
     }
+    @PostMapping("/messages")
+public ResponseEntity<Message> createMessage(@RequestBody Message message) {
+    Message savedMessage = adminService.saveMessage(message);
+    return ResponseEntity.status(HttpStatus.CREATED).body(savedMessage);
 }
+
+}
+
