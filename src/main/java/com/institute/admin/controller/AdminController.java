@@ -117,8 +117,19 @@ public ResponseEntity<Message> createMessage(@RequestBody Message message) {
     Message savedMessage = adminService.addMessage(message);
     return ResponseEntity.status(HttpStatus.CREATED).body(savedMessage);
 }
+    @DeleteMapping("/messages/{id}")
+public ResponseEntity<Void> deleteMessage(@PathVariable Long id) {
+    try {
+        adminService.deleteMessage(id);
+        return ResponseEntity.noContent().build();
+    } catch (RuntimeException e) {
+        return ResponseEntity.notFound().build();
+    }
+}
+
 
 
 }
+
 
 
