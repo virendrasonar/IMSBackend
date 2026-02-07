@@ -155,6 +155,21 @@ public class AdminService {
     }
     messageRepository.deleteById(id);
 }
+    public Student addStudent(Student student) {
+    if (student.getName() == null || student.getName().isBlank()) {
+        throw new IllegalArgumentException("Student name required");
+    }
+    return studentRepository.save(student);
+}
+
+public void deleteStudent(Long id) {
+    if (!studentRepository.existsById(id)) {
+        throw new RuntimeException("Student not found");
+    }
+    studentRepository.deleteById(id);
+}
+
 
 }
+
 
