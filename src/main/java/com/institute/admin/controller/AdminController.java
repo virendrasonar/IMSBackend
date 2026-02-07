@@ -24,7 +24,7 @@ import com.institute.admin.services.AdminService;
 @CrossOrigin(
     origins = {
         "http://localhost:4200",
-        "https://majestic-muffin-c16345.netlify.app"
+        "https://gleeful-panda-7ce1f7.netlify.app"
     }
 )
 @RestController
@@ -141,6 +141,7 @@ public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
 
 
 }
+
 
 
 
