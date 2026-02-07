@@ -149,4 +149,12 @@ public class AdminService {
         }
         return messageRepository.save(message);
     }
+    public void deleteMessage(Long id) {
+    if (!messageRepository.existsById(id)) {
+        throw new RuntimeException("Message not found with id " + id);
+    }
+    messageRepository.deleteById(id);
 }
+
+}
+
