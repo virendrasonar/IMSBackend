@@ -126,10 +126,22 @@ public ResponseEntity<Void> deleteMessage(@PathVariable Long id) {
         return ResponseEntity.notFound().build();
     }
 }
+    @PostMapping("/students")
+public ResponseEntity<Student> addStudent(@RequestBody Student student) {
+    Student saved = adminService.addStudent(student);
+    return ResponseEntity.status(HttpStatus.CREATED).body(saved);
+}
+
+@DeleteMapping("/students/{id}")
+public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
+    adminService.deleteStudent(id);
+    return ResponseEntity.noContent().build();
+}
 
 
 
 }
+
 
 
 
