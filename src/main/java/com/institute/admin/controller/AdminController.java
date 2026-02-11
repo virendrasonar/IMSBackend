@@ -138,9 +138,22 @@ public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
     return ResponseEntity.noContent().build();
 }
 
+@PutMapping("/students/{id}")
+public ResponseEntity<Student> updateStudent(
+        @PathVariable Long id,
+        @RequestBody Student student) {
+
+    try {
+        Student updated = adminService.updateStudent(id, student);
+        return ResponseEntity.ok(updated);
+    } catch (RuntimeException e) {
+        return ResponseEntity.notFound().build();
+    }
+}
 
 
 }
+
 
 
 
